@@ -1,0 +1,361 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1000" height="1500" viewBox="0 0 1000 1500">
+  <style>
+    .entity {
+      fill: #E1F5FE;
+      stroke: #0277BD;
+      stroke-width: 2;
+    }
+    .entity-title {
+      fill: #0277BD;
+      font-family: Arial, sans-serif;
+      font-size: 16px;
+      font-weight: bold;
+      text-anchor: middle;
+    }
+    .entity-attribute {
+      font-family: Arial, sans-serif;
+      font-size: 12px;
+      text-anchor: start;
+    }
+    .pk {
+      font-weight: bold;
+    }
+    .fk {
+      font-style: italic;
+    }
+    .relationship {
+      stroke: #0277BD;
+      stroke-width: 2;
+      fill: none;
+    }
+    .cardinality {
+      font-family: Arial, sans-serif;
+      font-size: 12px;
+      fill: #01579B;
+    }
+  </style>
+  
+  <!-- Books Entity -->
+  <rect x="50" y="50" width="200" height="200" rx="5" class="entity" />
+  <text x="150" y="75" class="entity-title">BOOKS</text>
+  <line x1="50" y1="85" x2="250" y2="85" stroke="#0277BD" stroke-width="1" />
+  <text x="60" y="105" class="entity-attribute pk">PK book_id</text>
+  <text x="60" y="125" class="entity-attribute">title</text>
+  <text x="60" y="145" class="entity-attribute fk">FK publisher_id</text>
+  <text x="60" y="165" class="entity-attribute">publication_date</text>
+  <text x="60" y="185" class="entity-attribute">isbn</text>
+  <text x="60" y="205" class="entity-attribute">language</text>
+  <text x="60" y="225" class="entity-attribute">pages</text>
+  
+  <!-- Authors Entity -->
+  <rect x="350" y="50" width="200" height="160" rx="5" class="entity" />
+  <text x="450" y="75" class="entity-title">AUTHORS</text>
+  <line x1="350" y1="85" x2="550" y2="85" stroke="#0277BD" stroke-width="1" />
+  <text x="360" y="105" class="entity-attribute pk">PK author_id</text>
+  <text x="360" y="125" class="entity-attribute">first_name</text>
+  <text x="360" y="145" class="entity-attribute">last_name</text>
+  <text x="360" y="165" class="entity-attribute">birth_date</text>
+  <text x="360" y="185" class="entity-attribute">nationality</text>
+  
+  <!-- Book_Authors Junction Table -->
+  <rect x="200" y="280" width="200" height="100" rx="5" class="entity" />
+  <text x="300" y="305" class="entity-title">BOOK_AUTHORS</text>
+  <line x1="200" y1="315" x2="400" y2="315" stroke="#0277BD" stroke-width="1" />
+  <text x="210" y="335" class="entity-attribute pk fk">PK FK book_id</text>
+  <text x="210" y="355" class="entity-attribute pk fk">PK FK author_id</text>
+  <text x="210" y="375" class="entity-attribute">role</text>
+  
+  <!-- Publishers Entity -->
+  <rect x="650" y="50" width="200" height="140" rx="5" class="entity" />
+  <text x="750" y="75" class="entity-title">PUBLISHERS</text>
+  <line x1="650" y1="85" x2="850" y2="85" stroke="#0277BD" stroke-width="1" />
+  <text x="660" y="105" class="entity-attribute pk">PK publisher_id</text>
+  <text x="660" y="125" class="entity-attribute">publisher_name</text>
+  <text x="660" y="145" class="entity-attribute">address</text>
+  <text x="660" y="165" class="entity-attribute">phone</text>
+  <text x="660" y="185" class="entity-attribute">email</text>
+  
+  <!-- Categories Entity -->
+  <rect x="650" y="250" width="200" height="100" rx="5" class="entity" />
+  <text x="750" y="275" class="entity-title">CATEGORIES</text>
+  <line x1="650" y1="285" x2="850" y2="285" stroke="#0277BD" stroke-width="1" />
+  <text x="660" y="305" class="entity-attribute pk">PK category_id</text>
+  <text x="660" y="325" class="entity-attribute">category_name</text>
+  <text x="660" y="345" class="entity-attribute">description</text>
+  
+  <!-- Book_Categories Junction Table -->
+  <rect x="400" y="400" width="200" height="80" rx="5" class="entity" />
+  <text x="500" y="425" class="entity-title">BOOK_CATEGORIES</text>
+  <line x1="400" y1="435" x2="600" y2="435" stroke="#0277BD" stroke-width="1" />
+  <text x="410" y="455" class="entity-attribute pk fk">PK FK book_id</text>
+  <text x="410" y="475" class="entity-attribute pk fk">PK FK category_id</text>
+  
+  <!-- Branches Entity -->
+  <rect x="50" y="400" width="200" height="140" rx="5" class="entity" />
+  <text x="150" y="425" class="entity-title">BRANCHES</text>
+  <line x1="50" y1="435" x2="250" y2="435" stroke="#0277BD" stroke-width="1" />
+  <text x="60" y="455" class="entity-attribute pk">PK branch_id</text>
+  <text x="60" y="475" class="entity-attribute">branch_name</text>
+  <text x="60" y="495" class="entity-attribute">address</text>
+  <text x="60" y="515" class="entity-attribute">phone</text>
+  <text x="60" y="535" class="entity-attribute">email</text>
+  
+  <!-- Book_Items Entity -->
+  <rect x="200" y="600" width="200" height="180" rx="5" class="entity" />
+  <text x="300" y="625" class="entity-title">BOOK_ITEMS</text>
+  <line x1="200" y1="635" x2="400" y2="635" stroke="#0277BD" stroke-width="1" />
+  <text x="210" y="655" class="entity-attribute pk">PK item_id</text>
+  <text x="210" y="675" class="entity-attribute fk">FK book_id</text>
+  <text x="210" y="695" class="entity-attribute fk">FK branch_id</text>
+  <text x="210" y="715" class="entity-attribute">barcode</text>
+  <text x="210" y="735" class="entity-attribute">status</text>
+  <text x="210" y="755" class="entity-attribute">acquisition_date</text>
+  <text x="210" y="775" class="entity-attribute">price</text>
+  
+  <!-- Patrons Entity -->
+  <rect x="500" y="600" width="200" height="180" rx="5" class="entity" />
+  <text x="600" y="625" class="entity-title">PATRONS</text>
+  <line x1="500" y1="635" x2="700" y2="635" stroke="#0277BD" stroke-width="1" />
+  <text x="510" y="655" class="entity-attribute pk">PK patron_id</text>
+  <text x="510" y="675" class="entity-attribute">first_name</text>
+  <text x="510" y="695" class="entity-attribute">last_name</text>
+  <text x="510" y="715" class="entity-attribute">email</text>
+  <text x="510" y="735" class="entity-attribute fk">FK type_id</text>
+  <text x="510" y="755" class="entity-attribute">registration_date</text>
+  <text x="510" y="775" class="entity-attribute">library_card_number</text>
+  
+  <!-- Patron_Types Entity -->
+  <rect x="750" y="600" width="200" height="140" rx="5" class="entity" />
+  <text x="850" y="625" class="entity-title">PATRON_TYPES</text>
+  <line x1="750" y1="635" x2="950" y2="635" stroke="#0277BD" stroke-width="1" />
+  <text x="760" y="655" class="entity-attribute pk">PK type_id</text>
+  <text x="760" y="675" class="entity-attribute">type_name</text>
+  <text x="760" y="695" class="entity-attribute">loan_limit</text>
+  <text x="760" y="715" class="entity-attribute">loan_period</text>
+  <text x="760" y="735" class="entity-attribute">fine_amount</text>
+  
+  <!-- Staff Entity -->
+  <rect x="50" y="600" width="200" height="160" rx="5" class="entity" />
+  <text x="150" y="625" class="entity-title">STAFF</text>
+  <line x1="50" y1="635" x2="250" y2="635" stroke="#0277BD" stroke-width="1" />
+  <text x="60" y="655" class="entity-attribute pk">PK staff_id</text>
+  <text x="60" y="675" class="entity-attribute">first_name</text>
+  <text x="60" y="695" class="entity-attribute">last_name</text>
+  <text x="60" y="715" class="entity-attribute">email</text>
+  <text x="60" y="735" class="entity-attribute">position</text>
+  <text x="60" y="755" class="entity-attribute fk">FK branch_id</text>
+  
+  <!-- Loans Entity -->
+  <rect x="350" y="850" width="200" height="180" rx="5" class="entity" />
+  <text x="450" y="875" class="entity-title">LOANS</text>
+  <line x1="350" y1="885" x2="550" y2="885" stroke="#0277BD" stroke-width="1" />
+  <text x="360" y="905" class="entity-attribute pk">PK loan_id</text>
+  <text x="360" y="925" class="entity-attribute fk">FK item_id</text>
+  <text x="360" y="945" class="entity-attribute fk">FK patron_id</text>
+  <text x="360" y="965" class="entity-attribute fk">FK checkout_staff_id</text>
+  <text x="360" y="985" class="entity-attribute fk">FK checkin_staff_id</text>
+  <text x="360" y="1005" class="entity-attribute">checkout_date</text>
+  <text x="360" y="1025" class="entity-attribute">due_date</text>
+  
+  <!-- Reservations Entity -->
+  <rect x="650" y="850" width="200" height="160" rx="5" class="entity" />
+  <text x="750" y="875" class="entity-title">RESERVATIONS</text>
+  <line x1="650" y1="885" x2="850" y2="885" stroke="#0277BD" stroke-width="1" />
+  <text x="660" y="905" class="entity-attribute pk">PK reservation_id</text>
+  <text x="660" y="925" class="entity-attribute fk">FK book_id</text>
+  <text x="660" y="945" class="entity-attribute fk">FK patron_id</text>
+  <text x="660" y="965" class="entity-attribute fk">FK branch_id</text>
+  <text x="660" y="985" class="entity-attribute">reservation_date</text>
+  <text x="660" y="1005" class="entity-attribute">status</text>
+  
+  <!-- Fines Entity -->
+  <rect x="50" y="850" width="200" height="160" rx="5" class="entity" />
+  <text x="150" y="875" class="entity-title">FINES</text>
+  <line x1="50" y1="885" x2="250" y2="885" stroke="#0277BD" stroke-width="1" />
+  <text x="60" y="905" class="entity-attribute pk">PK fine_id</text>
+  <text x="60" y="925" class="entity-attribute fk">FK loan_id</text>
+  <text x="60" y="945" class="entity-attribute fk">FK patron_id</text>
+  <text x="60" y="965" class="entity-attribute">fine_amount</text>
+  <text x="60" y="985" class="entity-attribute">fine_date</text>
+  <text x="60" y="1005" class="entity-attribute">status</text>
+  
+  <!-- Events Entity -->
+  <rect x="350" y="1100" width="200" height="160" rx="5" class="entity" />
+  <text x="450" y="1125" class="entity-title">EVENTS</text>
+  <line x1="350" y1="1135" x2="550" y2="1135" stroke="#0277BD" stroke-width="1" />
+  <text x="360" y="1155" class="entity-attribute pk">PK event_id</text>
+  <text x="360" y="1175" class="entity-attribute fk">FK branch_id</text>
+  <text x="360" y="1195" class="entity-attribute">title</text>
+  <text x="360" y="1215" class="entity-attribute">event_date</text>
+  <text x="360" y="1235" class="entity-attribute fk">FK coordinator_staff_id</text>
+  <text x="360" y="1255" class="entity-attribute">status</text>
+  
+  <!-- Event_Registrations Junction Table -->
+  <rect x="650" y="1100" width="200" height="100" rx="5" class="entity" />
+  <text x="750" y="1125" class="entity-title">EVENT_REGISTRATIONS</text>
+  <line x1="650" y1="1135" x2="850" y2="1135" stroke="#0277BD" stroke-width="1" />
+  <text x="660" y="1155" class="entity-attribute pk">PK registration_id</text>
+  <text x="660" y="1175" class="entity-attribute fk">FK event_id</text>
+  <text x="660" y="1195" class="entity-attribute fk">FK patron_id</text>
+  
+  <!-- Acquisitions Entity -->
+  <rect x="50" y="1100" width="200" height="160" rx="5" class="entity" />
+  <text x="150" y="1125" class="entity-title">ACQUISITIONS</text>
+  <line x1="50" y1="1135" x2="250" y2="1135" stroke="#0277BD" stroke-width="1" />
+  <text x="60" y="1155" class="entity-attribute pk">PK acquisition_id</text>
+  <text x="60" y="1175" class="entity-attribute fk">FK book_id</text>
+  <text x="60" y="1195" class="entity-attribute fk">FK branch_id</text>
+  <text x="60" y="1215" class="entity-attribute">quantity</text>
+  <text x="60" y="1235" class="entity-attribute">acquisition_date</text>
+  <text x="60" y="1255" class="entity-attribute">acquisition_type</text>
+  
+  <!-- Inventory_Checks Entity -->
+  <rect x="350" y="1350" width="200" height="120" rx="5" class="entity" />
+  <text x="450" y="1375" class="entity-title">INVENTORY_CHECKS</text>
+  <line x1="350" y1="1385" x2="550" y2="1385" stroke="#0277BD" stroke-width="1" />
+  <text x="360" y="1405" class="entity-attribute pk">PK check_id</text>
+  <text x="360" y="1425" class="entity-attribute fk">FK branch_id</text>
+  <text x="360" y="1445" class="entity-attribute fk">FK conducted_by_staff_id</text>
+  <text x="360" y="1465" class="entity-attribute">status</text>
+  
+  <!-- Inventory_Check_Items Entity -->
+  <rect x="650" y="1350" width="200" height="120" rx="5" class="entity" />
+  <text x="750" y="1375" class="entity-title">INVENTORY_CHECK_ITEMS</text>
+  <line x1="650" y1="1385" x2="850" y2="1385" stroke="#0277BD" stroke-width="1" />
+  <text x="660" y="1405" class="entity-attribute pk">PK check_item_id</text>
+  <text x="660" y="1425" class="entity-attribute fk">FK check_id</text>
+  <text x="660" y="1445" class="entity-attribute fk">FK item_id</text>
+  <text x="660" y="1465" class="entity-attribute">actual_status</text>
+  
+  <!-- Relationships -->
+  <!-- Books to Publishers (1:M) -->
+  <path d="M250,145 H300 C325,145 325,125 350,125 H600 C625,125 625,105 650,105" class="relationship" />
+  <text x="275" y="140" class="cardinality">1</text>
+  <text x="625" y="100" class="cardinality">N</text>
+  
+  <!-- Books to Book_Authors Junction (1:M) -->
+  <path d="M150,250 V265 C150,275 160,280 175,280 H200" class="relationship" />
+  <text x="155" y="260" class="cardinality">1</text>
+  <text x="195" y="275" class="cardinality">N</text>
+  
+  <!-- Authors to Book_Authors Junction (1:M) -->
+  <path d="M450,210 V245 C450,265 425,280 400,280" class="relationship" />
+  <text x="445" y="230" class="cardinality">1</text>
+  <text x="405" y="275" class="cardinality">N</text>
+  
+  <!-- Books to Book_Categories Junction (1:M) -->
+  <path d="M125,250 V325 C125,350 200,375 300,400 H400" class="relationship" />
+  <text x="130" y="300" class="cardinality">1</text>
+  <text x="395" y="395" class="cardinality">N</text>
+  
+  <!-- Categories to Book_Categories Junction (1:M) -->
+  <path d="M750,350 V375 C750,388 675,400 600,400" class="relationship" />
+  <text x="745" y="365" class="cardinality">1</text>
+  <text x="605" y="395" class="cardinality">N</text>
+  
+  <!-- Books to Book_Items (1:M) -->
+  <path d="M100,250 V425 C100,500 150,550 200,600" class="relationship" />
+  <text x="105" y="300" class="cardinality">1</text>
+  <text x="195" y="595" class="cardinality">N</text>
+  
+  <!-- Branches to Book_Items (1:M) -->
+  <path d="M150,540 V570 C150,585 175,600 200,600" class="relationship" />
+  <text x="155" y="555" class="cardinality">1</text>
+  <text x="195" y="595" class="cardinality">N</text>
+  
+  <!-- Patron_Types to Patrons (1:M) -->
+  <path d="M750,670 H725 C710,670 710,685 700,685" class="relationship" />
+  <text x="735" y="665" class="cardinality">1</text>
+  <text x="705" y="680" class="cardinality">N</text>
+  
+  <!-- Branches to Staff (1:M) -->
+  <path d="M50,470 H25 C15,470 15,550 25,600 H50" class="relationship" />
+  <text x="30" y="465" class="cardinality">1</text>
+  <text x="45" y="595" class="cardinality">N</text>
+  
+  <!-- Book_Items to Loans (1:M) -->
+  <path d="M300,780 V815 C300,830 325,850 350,850" class="relationship" />
+  <text x="305" y="800" class="cardinality">1</text>
+  <text x="345" y="845" class="cardinality">N</text>
+  
+  <!-- Patrons to Loans (1:M) -->
+  <path d="M600,780 V815 C600,830 575,850 550,850" class="relationship" />
+  <text x="595" y="800" class="cardinality">1</text>
+  <text x="555" y="845" class="cardinality">N</text>
+  
+  <!-- Staff to Loans (checkout) (1:M) -->
+  <path d="M150,760 V815 C150,830 250,850 350,870" class="relationship" />
+  <text x="155" y="785" class="cardinality">1</text>
+  <text x="345" y="865" class="cardinality">N</text>
+  
+  <!-- Staff to Loans (checkin) (1:M) -->
+  <path d="M125,760 V825 C125,840 225,860 350,880" class="relationship" />
+  <text x="130" y="785" class="cardinality">1</text>
+  <text x="345" y="875" class="cardinality">N</text>
+  
+  <!-- Books to Reservations (1:M) -->
+  <path d="M75,250 V535 C75,650 350,750 650,850" class="relationship" />
+  <text x="80" y="300" class="cardinality">1</text>
+  <text x="645" y="845" class="cardinality">N</text>
+  
+  <!-- Patrons to Reservations (1:M) -->
+  <path d="M625,780 V815 C625,830 650,850 650,850" class="relationship" />
+  <text x="620" y="800" class="cardinality">1</text>
+  <text x="645" y="845" class="cardinality">N</text>
+  
+  <!-- Branches to Reservations (1:M) -->
+  <path d="M25,400 H10 C5,400 5,625 5,850 H25" class="relationship" marker-end="url(#arrow)" />
+  <text x="10" y="395" class="cardinality">1</text>
+  <text x="20" y="845" class="cardinality">N</text>
+  
+  <!-- Loans to Fines (1:M) -->
+  <path d="M350,950 H300 C275,950 275,935 250,935" class="relationship" />
+  <text x="345" y="945" class="cardinality">1</text>
+  <text x="255" y="930" class="cardinality">N</text>
+  
+  <!-- Branches to Events (1:M) -->
+  <path d="M175,540 V700 C175,900 250,1100 350,1150" class="relationship" />
+  <text x="180" y="600" class="cardinality">1</text>
+  <text x="345" y="1145" class="cardinality">N</text>
+  
+  <!-- Staff to Events (coordinator) (1:M) -->
+  <path d="M200,760 V800 C200,950 250,1100 350,1175" class="relationship" />
+  <text x="205" y="785" class="cardinality">1</text>
+  <text x="345" y="1170" class="cardinality">N</text>
+  
+  <!-- Events to Event_Registrations (1:M) -->
+  <path d="M550,1175 H600 C625,1175 625,1155 650,1155" class="relationship" />
+  <text x="545" y="1170" class="cardinality">1</text>
+  <text x="645" y="1150" class="cardinality">N</text>
+  
+  <!-- Patrons to Event_Registrations (1:M) -->
+  <path d="M650,700 H775 C850,700 850,950 800,1100" class="relationship" />
+  <text x="655" y="695" class="cardinality">1</text>
+  <text x="795" y="1095" class="cardinality">N</text>
+  
+  <!-- Books to Acquisitions (1:M) -->
+  <path d="M50,150 H25 C10,150 10,625 10,1125 H50" class="relationship" />
+  <text x="35" y="145" class="cardinality">1</text>
+  <text x="45" y="1120" class="cardinality">N</text>
+  
+  <!-- Branches to Inventory_Checks (1:M) -->
+  <path d="M200,540 H225 C250,540 300,950 350,1350" class="relationship" />
+  <text x="205" y="535" class="cardinality">1</text>
+  <text x="345" y="1345" class="cardinality">N</text>
+  
+  <!-- Staff to Inventory_Checks (conducted by) (1:M) -->
+  <path d="M225,760 H250 C275,760 320,1050 375,1350" class="relationship" />
+  <text x="230" y="755" class="cardinality">1</text>
+  <text x="370" y="1345" class="cardinality">N</text>
+  
+  <!-- Inventory_Checks to Inventory_Check_Items (1:M) -->
+  <path d="M550,1425 H600 C625,1425 625,1405 650,1405" class="relationship" />
+  <text x="545" y="1420" class="cardinality">1</text>
+  <text x="645" y="1400" class="cardinality">N</text>
+  
+  <!-- Book_Items to Inventory_Check_Items (1:M) -->
+  <path d="M400,700 H425 C650,700 800,1025 750,1350" class="relationship" />
+  <text x="405" y="695" class="cardinality">1</text>
+  <text x="745" y="1345" class="cardinality">N</text>
+</svg>
